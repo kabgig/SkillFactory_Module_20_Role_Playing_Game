@@ -1,7 +1,8 @@
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.HashMap;
 
-public class Hero extends Personage implements Attack{
+public class Hero extends Personage implements Attack {
     HashMap<String, Integer> mixtures;
     BufferedReader br;
 
@@ -11,12 +12,21 @@ public class Hero extends Personage implements Attack{
         this.br = br;
     }
 
-    public void mixtureInfo(){  // How many does Hero have
+    public void useMixture() {
+        if(mixtures.isEmpty()){
+            System.out.println("You don't have mixtures");
+            return;
+        }
+        System.out.println("Which mixture to use?");
         System.out.println(mixtures.keySet());
-    }
-    public void useMixture(String mixtureCode){
-        int mixAdd = mixtures.remove(mixtureCode);
-        health += mixAdd;
-        System.out.println("Health is increased by " + mixAdd + ".\n Now health level is " + health);
+        System.out.println("Enter: ");
+        try {
+            String mix = br.readLine();
+            int mixAdd = mixtures.remove(mix);
+            health += mixAdd;
+            System.out.println("Health is increased by " + mixAdd + ".\n Now health level is " + health);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

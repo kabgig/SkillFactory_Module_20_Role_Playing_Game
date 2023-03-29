@@ -5,17 +5,17 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in));) {
-
-            System.out.print("enter: ");
-            System.out.println(br.readLine());
-
-
-            var hero = new Hero("Hero", 1000, 1000, 15, 450, 3);
+            //personages
+            var hero = new Hero("Hero", 1000, 1000, 15, 450, 3, br);
             var goblin = new Goblin();
             var skeleton = new Skeleton();
+            var menu = new Menu(br);
 
-            var res = goblin.attack(hero, goblin);
-            System.out.println(res);
+
+
+            menu.menu();
+
+
 
         } catch (IOException e) {
             throw new RuntimeException(e);
