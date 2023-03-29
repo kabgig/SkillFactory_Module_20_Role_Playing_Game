@@ -1,9 +1,9 @@
 public interface Attack {
         //at - attacker
         //vic - victim
-        static String attack(Personage at, Personage vic) {
+        default String attack(Personage at, Personage vic) {
             String attackResult = "";
-            int kick = at.power / (10 * at.experience + at.skill);
+            int kick = at.power / (10 * at.experience + at.skill); // how hard it kicks
             at.power -= kick;
             if (at.power < 0) at.power = 0;
 
@@ -11,8 +11,11 @@ public interface Attack {
                 attackResult = "Attack is missed,\npower level " + at.power;
             } else {
                 vic.health -= kick;
+                attackResult = at.name + " attacked! Power left " + at.power + "\n" +
+                        vic.name + " health " + vic.health;
                 if (vic.health <= 0) attackResult = vic.name + " dead";
             }
+            System.out.println("------------");
             return attackResult;
         }
 }
