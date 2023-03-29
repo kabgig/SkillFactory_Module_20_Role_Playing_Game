@@ -1,5 +1,7 @@
 public class Attack {
-    public static void attack(Personage obj1, Personage obj2){
+    public static String attack(Personage attacker, Personage victim){
+        if (attacker.skill < victim.skill) return "промах";
 
+        return "Done";
     }
 }

@@ -4,11 +4,12 @@ public abstract class Personage {
 
     public Personage(
             String name,
-            int health,
-            int gold,
-            int skill,
-            int power,
-            int experience) {
+            int health, // 1000 initial
+            int gold, //1000 initial
+            int skill, //0-20
+            int power, //0-500
+            int experience // 1-5
+    ) {
         this.name = name;
         this.health = health;
         this.gold = gold;
@@ -16,10 +17,4 @@ public abstract class Personage {
         this.power = power;
         this.experience = experience;
     }
-
-
-
- //   abstract void attack(Personage enemyObject);
-
-
 }
