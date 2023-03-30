@@ -19,7 +19,7 @@ public class Menu {
 
     public void menu() {
         while (true) {
-            System.out.println("----\nMain Menu\n1. To Vendor\n2. To forest\n3. Exit\n-------");
+            System.out.println("------\nMain Menu\n1. To Vendor\n2. To forest\n3. Exit\n-------");
             System.out.print("Enter: ");
             try {
                 String command = br.readLine();
@@ -33,7 +33,7 @@ public class Menu {
                     case "3":
                         break;
                     default:
-                        menu();
+                        continue;
                 }
                 break;
             } catch (IOException e) {

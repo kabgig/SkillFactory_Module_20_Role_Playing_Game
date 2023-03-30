@@ -51,7 +51,7 @@ public class Hero extends Personage implements Attack {
             String mix = br.readLine();
             int mixAdd = mixtures.remove(mix);
             health += mixAdd;
-            System.out.println("------\nHealth is increased by " + mixAdd + ".\nNow health level is " + health);
+            System.out.println("------\nHealth is increased by " + mixAdd + ".\nNow health level is " + health + "\nWhat to do now?");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

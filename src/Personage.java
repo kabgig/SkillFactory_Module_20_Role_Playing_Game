@@ -1,5 +1,3 @@
-import java.io.BufferedReader;
-
 public abstract class Personage{
     String name;
     int health, gold, skill, power, experience;

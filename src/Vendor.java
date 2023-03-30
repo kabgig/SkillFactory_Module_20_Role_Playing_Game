@@ -22,7 +22,7 @@ public class Vendor {
                 switch (command) {
                     case "1": {
                         if (hero.gold < 500) {
-                            System.out.println("Not enough gold!\n--------");
+                            System.out.println("Not enough gold!");
                         } else {
                             hero.gold -= 500;
                             hero.mixtures.put(index + "-L", 500);

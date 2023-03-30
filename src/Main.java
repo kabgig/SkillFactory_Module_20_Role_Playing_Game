@@ -11,13 +11,10 @@ public class Main {
             var skeleton = new Skeleton();
             var vendor = new Vendor();
             var menu = new Menu(br, hero, vendor,goblin,skeleton);
-
+            //starting the game
             menu.menu();
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
-
 }
