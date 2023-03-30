@@ -3,9 +3,13 @@ import java.io.IOException;
 
 public class Menu {
     BufferedReader br;
+    Hero hero;
+    Vendor vendor;
 
-    public Menu(BufferedReader br) {
+    public Menu(BufferedReader br, Hero hero, Vendor vendor) {
         this.br = br;
+        this.hero = hero;
+        this.vendor = vendor;
     }
 
     public void menu(){
@@ -14,7 +18,7 @@ public class Menu {
         try {
             String command = br.readLine();
             switch(command){
-                case "1": vendorMenu(); break;
+                case "1": vendorMenu(hero,vendor); break;
                 case "2": forestMenu(); break;
                 case "3": break;
                 default: menu();
@@ -24,8 +28,8 @@ public class Menu {
             throw new RuntimeException(e);
         }
     }
-    public void vendorMenu(){
-        System.out.println("vendor menu");
+    public void vendorMenu(Hero hero,Vendor vendor){
+        vendor.sellMixture(hero,br);
     }
     public void forestMenu(){
         System.out.println("forest menu");
