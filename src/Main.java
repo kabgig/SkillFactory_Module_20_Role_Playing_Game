@@ -10,7 +10,7 @@ public class Main {
             var goblin = new Goblin();
             var skeleton = new Skeleton();
             var vendor = new Vendor();
-            var menu = new Menu(br, hero, vendor);
+            var menu = new Menu(br, hero, vendor,goblin,skeleton);
 
             menu.menu();
 

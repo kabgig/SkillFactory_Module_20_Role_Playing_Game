@@ -12,9 +12,9 @@ public class Hero extends Personage implements Attack {
         this.br = br;
     }
 
-    public void heroMenu(Menu menu) {
+    public void heroMenu(Menu menu,Personage enemy) {
         while (true) {
-            System.out.print("--------\nWhat the Hero is gonna do?\n1.Use mixture\n2.Attack\n3.Main menu\nEnter number:");
+            System.out.print("--------\nEncountered monster!!!\nWhat the Hero is gonna do?\n1.Use mixture\n2.Attack\n3.Main menu\nEnter number:");
             try {
                 String command = br.readLine();
                 switch (command) {
@@ -22,7 +22,7 @@ public class Hero extends Personage implements Attack {
                         useMixture(menu);
                         break;
                     case "2":
-                        System.out.println("fix attack!");
+                        attack(this, enemy);
                         break;
                     case "3":
                         break;
