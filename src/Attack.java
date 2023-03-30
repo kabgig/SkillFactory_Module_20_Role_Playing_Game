@@ -3,7 +3,8 @@ public interface Attack {
     //vic - victim
     default String attack(Personage at, Personage vic) {
         String attackResult = "";
-        int kick = at.power / (10 * at.experience + at.skill); // how hard it kicks
+        int kick = (10 * at.experience) + at.skill;// how hard it kicks
+        System.out.println("kick power is " + kick);
         at.power -= kick;
         if (at.power < 0) at.power = 0;
 
@@ -12,8 +13,8 @@ public interface Attack {
         } else {
             vic.health -= kick;
             if (vic.health <= 0) {
-                at.experience += 1;
-                attackResult = vic.name + " dead\n" + at.name + "'s experience is increased by 1\n experience level is " + at.experience;
+                at.experience += 2;
+                attackResult = vic.name + " is dead\n" + at.name + " gained experience 1\n now experience is " + at.experience;
                 if (at.getClass().equals(Hero.class)) {
                     at.gold += 700;
                     attackResult += "\ngold increased by 700\n gold level " + at.gold;
