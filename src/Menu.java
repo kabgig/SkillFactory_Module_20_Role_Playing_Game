@@ -12,26 +12,32 @@ public class Menu {
         this.vendor = vendor;
     }
 
-    public void menu(){
-        System.out.println("----\nMenu\n1. To Vendor\n2. To forest\n3. Exit\n-------");
-        System.out.print("Enter: ");
-        try {
-            String command = br.readLine();
-            switch(command){
-                case "1": vendorMenu(hero,vendor); break;
-                case "2": forestMenu(); break;
-                case "3": break;
-                default: menu();
+    public void menu() {
+        while (true) {
+            System.out.println("----\nMain Menu\n1. To Vendor\n2. To forest\n3. Exit\n-------");
+            System.out.print("Enter: ");
+            try {
+                String command = br.readLine();
+                switch (command) {
+                    case "1":
+                        vendor.sellMixture(hero, br, this);
+                        break;
+                    case "2":
+                        hero.heroMenu(this);
+                        break;
+                    case "3":
+                        break;
+                    default:
+                        menu();
+                }
+            break;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
-    public void vendorMenu(Hero hero,Vendor vendor){
-        vendor.sellMixture(hero,br);
-    }
-    public void forestMenu(){
+
+    public void forestMenu() {
         System.out.println("forest menu");
     }
 }

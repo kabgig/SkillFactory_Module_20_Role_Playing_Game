@@ -12,21 +12,45 @@ public class Hero extends Personage implements Attack {
         this.br = br;
     }
 
-    public void useMixture() {
-        if(mixtures.isEmpty()){
-            System.out.println("You don't have mixtures");
+    public void heroMenu(Menu menu) {
+        while (true) {
+            System.out.print("--------\nWhat the Hero is gonna do?\n1.Use mixture\n2.Attack\n3.Main menu\nEnter number:");
+            try {
+                String command = br.readLine();
+                switch (command) {
+                    case "1":
+                        useMixture(menu);
+                        break;
+                    case "2":
+                        System.out.println("fix attack!");
+                        break;
+                    case "3":
+                        break;
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            break;
+        }
+        menu.menu();
+    }
+
+    public void useMixture(Menu menu) {
+        if (mixtures.isEmpty()) {
+            System.out.println("-------\nYou don't have mixtures");
             return;
         }
-        System.out.println("Which mixture to use?");
+        System.out.println("------\nWhich mixture to use?");
         System.out.println(mixtures.keySet());
-        System.out.println("Enter: ");
+        System.out.print("Enter: ");
         try {
             String mix = br.readLine();
             int mixAdd = mixtures.remove(mix);
             health += mixAdd;
-            System.out.println("Health is increased by " + mixAdd + ".\n Now health level is " + health);
+            System.out.println("------\nHealth is increased by " + mixAdd + ".\nNow health level is " + health);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+       // heroMenu(menu);
     }
 }

@@ -9,13 +9,10 @@ public class Main {
             var hero = new Hero("Hero", 1000, 1000, 15, 450, 4, br);
             var goblin = new Goblin();
             var skeleton = new Skeleton();
-            var menu = new Menu(br, hero);
-
-
+            var vendor = new Vendor();
+            var menu = new Menu(br, hero, vendor);
 
             menu.menu();
-
-
 
         } catch (IOException e) {
             throw new RuntimeException(e);
