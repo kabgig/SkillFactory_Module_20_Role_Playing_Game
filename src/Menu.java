@@ -28,7 +28,7 @@ public class Menu {
                         vendor.sellMixture(hero, br, this);
                         break;
                     case "2":
-                        hero.heroMenu(this, enemyRandomizer(goblin, skeleton));
+                        hero.heroMenu(this, enemyRandomizer(goblin, skeleton));hero.heroMenu(this, enemyRandomizer(goblin, skeleton));
                         break;
                     case "3":
                         break;
@@ -45,7 +45,7 @@ public class Menu {
     public Personage enemyRandomizer(Goblin goblin, Skeleton skeleton) {
         //who's enemy today
         Random random = new Random();
-        int enemyIndex = random.nextInt(2);
+        int enemyIndex = random.nextInt(1,3);
         return switch (enemyIndex) {
             case 1 -> goblin;
             case 2 -> skeleton;

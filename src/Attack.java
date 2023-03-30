@@ -8,7 +8,7 @@ public interface Attack {
         if (at.power < 0) at.power = 0;
 
         if (at.skill * at.experience < vic.skill * vic.experience || at.power <= 0) {
-            attackResult = "Attack is missed,\npower level " + at.power;
+            attackResult = at.name + "'s attack is missed,\n" + at.name + "'s power left " + at.power;
         } else {
             vic.health -= kick;
             if (vic.health <= 0) {
