@@ -9,7 +9,7 @@ public class Main {
             System.out.print("Enter the Hero name: ");
             var name = br.readLine();
 
-            //personages
+            //creating personages
             var hero = new Hero(name, 1, 10000, 15, 12450, 4,1, br);
             var goblin = new Goblin();
             var skeleton = new Skeleton();
