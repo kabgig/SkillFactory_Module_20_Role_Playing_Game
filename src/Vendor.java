@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class Vendor {
-    int gold = 0;
+   // int gold = 0;
     HashMap<String, Integer> mixtures;
     int index = 0;
 
@@ -79,11 +79,4 @@ public class Vendor {
             }
         }
     }
-
-
-//    public void putMixture(int mixtureSize) {
-//        int index = 1;
-//        mixtures.put(index + "-" + mixtureSize, mixtureSize);
-//       // index++;
-//    }
 }

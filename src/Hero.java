@@ -39,7 +39,6 @@ public class Hero extends Personage implements Attack {
                             System.out.println(attack(this, enemy));
                         });
                         es.awaitTermination(500, TimeUnit.MILLISECONDS);
-                        //Thread.sleep(500);
                         if (!enemy.isAlive) break label1;
                         es.submit(() -> {
                             System.out.println(attack(enemy, this));
