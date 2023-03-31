@@ -2,7 +2,6 @@ import java.util.Random;
 
 public interface Attack {
     Random random = new Random();
-
     //at - attacker
     //vic - victim
     default String attack(Personage at, Personage vic) {
@@ -21,8 +20,12 @@ public interface Attack {
                 if (at.experience > 10) {
                     at.level++;
                     at.experience -= 5;
-                    System.out.println("---------\nNEW LEVEL " + at.level + " !!!!!\n---------\n" +
-                            "\nExperience:" + at.experience +
+                    System.out.println("\n\n\n" +
+                            "---------\n" +
+                            "---------\n" +
+                            "NEW LEVEL " + at.level + " !!!!!\n" +
+                            "---------\n" +
+                            "Experience:" + at.experience +
                             "\nGain more experience and get new level!!!!");
                 }
                 attackResult =at.name + " attacked! \n" + vic.name + " is dead\n" +

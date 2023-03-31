@@ -13,10 +13,17 @@ public class Hero extends Personage implements Attack {
     }
 
     public void heroMenu(Menu menu, Personage enemy) {
-        System.out.print("--------\nEncountered " + enemy.name + "!!!\nWhat is the Hero gonna do?\n");
+        System.out.print("--------\n" +
+                "Encountered " + enemy.name + "!!!\n" +
+                "What is the Hero gonna do?\n");
         label1:
         while (true) {
-            System.out.print("1.Use mixture\n2.Attack!\n3.Run away!\nEnter number: ");
+            System.out.print(
+                            "1.Use mixture\n" +
+                            "2.Attack!\n" +
+                            "3.Run away!\n" +
+                            "--\n" +
+                            "Enter number: ");
             try {
                 String command = br.readLine();
                 switch (command) {
@@ -28,10 +35,12 @@ public class Hero extends Personage implements Attack {
                         if(!enemy.isAlive) break label1;
                         System.out.println(attack(enemy, this));
                         if(!this.isAlive) {
-                            System.out.println("Game over. Hero is dead!");
+                            System.out.println("---------\n" +
+                                    "Game over. Hero is dead!");
                             break label1;
                         }
-                        System.out.println("--------\nWhat to do next?");
+                        System.out.println("--------\n" +
+                                "What to do next?");
                         break;
                     case "3":
                         break label1;
@@ -62,7 +71,7 @@ public class Hero extends Personage implements Attack {
                             "\nNow health level is " + health +
                             "\nPower is increased by" + mixAdd * 2 +
                             "\nNow power level is " + power +
-                            "\n------" +
+                            "\n--" +
                             "\nWhat to do now?");
         } catch (IOException e) {
             throw new RuntimeException(e);

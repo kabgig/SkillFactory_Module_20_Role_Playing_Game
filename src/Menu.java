@@ -20,8 +20,14 @@ public class Menu {
     public void menu() {
         label1:
         while (true) {
-            System.out.println("------\nMain Menu\n1. To Vendor\n2. To forest\n3. Exit\n-------");
-            System.out.print("Enter: ");
+            System.out.print(
+                    "------------\n" +
+                    "Main Menu\n" +
+                    "1. To Vendor\n" +
+                    "2. To forest\n" +
+                    "3. Exit game\n" +
+                    "--\n"+
+                    "Enter: ");
             try {
                 String command = br.readLine();
                 switch (command) {
