@@ -3,7 +3,7 @@ public class Goblin extends Personage implements Attack{
         super(name, health, gold, skill, power, experience, level);
     }
     public Goblin() {
-        super("Goblin", 1000, 0, 1, 450, 1,1);
+        super("Goblin", 1000, 0, 10, 450, 1,1);
     }
 
 }

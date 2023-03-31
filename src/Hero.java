@@ -16,7 +16,7 @@ public class Hero extends Personage implements Attack {
         System.out.print("--------\nEncountered " + enemy.name + "!!!\nWhat is the Hero gonna do?\n");
         label1:
         while (true) {
-            System.out.println("1.Use mixture\n2.Attack!\n3.Run away!\nEnter number:");
+            System.out.print("1.Use mixture\n2.Attack!\n3.Run away!\nEnter number: ");
             try {
                 String command = br.readLine();
                 switch (command) {
@@ -25,8 +25,12 @@ public class Hero extends Personage implements Attack {
                         break;
                     case "2":
                         System.out.println(attack(this, enemy));
-                        System.out.println("-------\n" + enemy.name + " attacked!!!");
+                        if(!enemy.isAlive) break label1;
                         System.out.println(attack(enemy, this));
+                        if(!this.isAlive) {
+                            System.out.println("Game over. Hero is dead!");
+                            break label1;
+                        }
                         System.out.println("--------\nWhat to do next?");
                         break;
                     case "3":

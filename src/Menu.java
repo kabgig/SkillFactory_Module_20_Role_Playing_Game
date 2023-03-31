@@ -30,7 +30,7 @@ public class Menu {
                         break;
                     case "2":
                         hero.heroMenu(this, enemyRandomizer(goblin, skeleton));
-                       // hero.heroMenu(this, enemyRandomizer(goblin, skeleton));
+                        if(!hero.isAlive) break label1;
                         break;
                     case "3":
                         break label1;

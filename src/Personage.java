@@ -1,6 +1,7 @@
 public abstract class Personage{
     String name;
     int health, gold, skill, power, experience, level;
+    boolean isAlive = true;
 
     public Personage(
             String name,
