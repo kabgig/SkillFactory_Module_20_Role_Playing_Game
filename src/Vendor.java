@@ -23,7 +23,7 @@ public class Vendor {
                             "1.Large - 500gold\n" +
                             "2.Medium - 250gold\n" +
                             "3.Small - 100gold\n" +
-                            "4.Main menu\n" +
+                            "4.Back to village\n" +
                             "--\n" +
                             "Enter number: ");
             try {

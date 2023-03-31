@@ -17,12 +17,12 @@ public class Hero extends Personage implements Attack {
 
     public void heroMenu(Menu menu, Personage enemy) {
         System.out.print("--------\n" +
-                "Encountered " + enemy.name + "!!!\n" +
-                "What is the Hero gonna do?\n");
+                "Encountered " + enemy.name + "!!!\n\n" +
+                "What is "+ name + " gonna do?\n");
         label1:
         while (true) {
             System.out.print(
-                    "1.Use mixture\n" +
+                            "1.Use mixture\n" +
                             "2.Attack!\n" +
                             "3.Run away!\n" +
                             "--\n" +
@@ -82,7 +82,7 @@ public class Hero extends Personage implements Attack {
             System.out.println(
                     "--------\nHealth is increased by " + mixAdd +
                             "\nNow health level is " + health +
-                            "\nPower is increased by" + mixAdd * 2 +
+                            "\nPower is increased by " + mixAdd * 2 +
                             "\nNow power level is " + power +
                             "\n--" +
                             "\nWhat to do now?");
