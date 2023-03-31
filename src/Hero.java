@@ -1,13 +1,16 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class Hero extends Personage implements Attack {
     HashMap<String, Integer> mixtures;
     BufferedReader br;
 
-    public Hero(String name, int health, int gold, int skill, int power, int experience, int level,BufferedReader br) {
-        super(name, health, gold, skill, power, experience,level);
+    public Hero(String name, int health, int gold, int skill, int power, int experience, int level, BufferedReader br) {
+        super(name, health, gold, skill, power, experience, level);
         mixtures = new HashMap<>();
         this.br = br;
     }
@@ -19,7 +22,7 @@ public class Hero extends Personage implements Attack {
         label1:
         while (true) {
             System.out.print(
-                            "1.Use mixture\n" +
+                    "1.Use mixture\n" +
                             "2.Attack!\n" +
                             "3.Run away!\n" +
                             "--\n" +
@@ -31,10 +34,19 @@ public class Hero extends Personage implements Attack {
                         useMixture(menu);
                         break;
                     case "2":
-                        System.out.println(attack(this, enemy));
-                        if(!enemy.isAlive) break label1;
-                        System.out.println(attack(enemy, this));
-                        if(!this.isAlive) {
+                        ExecutorService es = Executors.newFixedThreadPool(2);
+                        es.submit(() -> {
+                            System.out.println(attack(this, enemy));
+                        });
+                        es.awaitTermination(500, TimeUnit.MILLISECONDS);
+                        //Thread.sleep(500);
+                        if (!enemy.isAlive) break label1;
+                        es.submit(() -> {
+                            System.out.println(attack(enemy, this));
+                        });
+                        es.awaitTermination(500, TimeUnit.MILLISECONDS);
+                        es.shutdown();
+                        if (!this.isAlive) {
                             System.out.println("---------\n" +
                                     "Game over. Hero is dead!");
                             break label1;
@@ -47,7 +59,8 @@ public class Hero extends Personage implements Attack {
                     default:
                         System.out.println("-------\nWrong command!!!!!");
                 }
-            } catch (IOException e) {
+                Thread.sleep(500);
+            } catch (IOException | InterruptedException e) {
                 throw new RuntimeException(e);
             }
         }
