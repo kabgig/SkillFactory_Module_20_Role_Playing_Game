@@ -10,7 +10,7 @@ public class Main {
             var name = br.readLine();
 
             //creating personages
-            var hero = new Hero(name, 1, 10000, 15, 12450, 4,1, br);
+            var hero = new Hero(name, 1000, 10000, 15, 12450, 4,1, br);
             var goblin = new Goblin();
             var skeleton = new Skeleton();
             var vendor = new Vendor();
