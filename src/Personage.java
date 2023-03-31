@@ -1,14 +1,15 @@
 public abstract class Personage{
     String name;
-    int health, gold, skill, power, experience;
+    int health, gold, skill, power, experience, level;
 
     public Personage(
             String name,
-            int health, // 1000 initial
-            int gold, //1000 initial
-            int skill, //0-20
-            int power, //0-500
-            int experience // 1-5
+            int health,
+            int gold,
+            int skill,
+            int power,
+            int experience,
+            int level
     ) {
         this.name = name;
         this.health = health;
@@ -16,5 +17,6 @@ public abstract class Personage{
         this.skill = skill;
         this.power = power;
         this.experience = experience;
+        this.level = level;
     }
 }

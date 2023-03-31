@@ -15,6 +15,7 @@ public class Vendor {
     }
 
     public void sellMixture(Hero hero, BufferedReader br, Menu menu) {
+        label1:
         while (true) {
             System.out.print("-------\nMixture prices:\n1.Large - 500gold\n2.Medium - 250gold\n3.Small - 100gold\n4.Main menu\n------\nEnter number: ");
             try {
@@ -54,15 +55,15 @@ public class Vendor {
                         break;
                     }
                     case "4": {
-                        break;
+                        break label1;
                     }
+                    default:
+                        System.out.println("------\nWrong command!!");
                 }
-                break;
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
-        menu.menu();
     }
 
 

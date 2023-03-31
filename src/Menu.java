@@ -18,6 +18,7 @@ public class Menu {
     }
 
     public void menu() {
+        label1:
         while (true) {
             System.out.println("------\nMain Menu\n1. To Vendor\n2. To forest\n3. Exit\n-------");
             System.out.print("Enter: ");
@@ -28,14 +29,14 @@ public class Menu {
                         vendor.sellMixture(hero, br, this);
                         break;
                     case "2":
-                        hero.heroMenu(this, enemyRandomizer(goblin, skeleton));hero.heroMenu(this, enemyRandomizer(goblin, skeleton));
+                        hero.heroMenu(this, enemyRandomizer(goblin, skeleton));
+                       // hero.heroMenu(this, enemyRandomizer(goblin, skeleton));
                         break;
                     case "3":
-                        break;
+                        break label1;
                     default:
-                        continue;
+                        System.out.println("------\nWrong command!");;
                 }
-                break;
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -43,7 +44,6 @@ public class Menu {
     }
 
     public Personage enemyRandomizer(Goblin goblin, Skeleton skeleton) {
-        //who's enemy today
         Random random = new Random();
         int enemyIndex = random.nextInt(1,3);
         return switch (enemyIndex) {

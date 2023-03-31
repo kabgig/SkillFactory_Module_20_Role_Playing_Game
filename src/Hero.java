@@ -6,8 +6,8 @@ public class Hero extends Personage implements Attack {
     HashMap<String, Integer> mixtures;
     BufferedReader br;
 
-    public Hero(String name, int health, int gold, int skill, int power, int experience, BufferedReader br) {
-        super(name, health, gold, skill, power, experience);
+    public Hero(String name, int health, int gold, int skill, int power, int experience, int level,BufferedReader br) {
+        super(name, health, gold, skill, power, experience,level);
         mixtures = new HashMap<>();
         this.br = br;
     }
@@ -31,12 +31,13 @@ public class Hero extends Personage implements Attack {
                         break;
                     case "3":
                         break label1;
+                    default:
+                        System.out.println("-------\nWrong command!!!!!");
                 }
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
-        menu.menu();
     }
 
     public void useMixture(Menu menu) {
@@ -51,16 +52,16 @@ public class Hero extends Personage implements Attack {
             String mix = br.readLine();
             int mixAdd = mixtures.remove(mix);
             health += mixAdd;
-            power += mixAdd/2;
+            power += mixAdd * 2;
             System.out.println(
-                    "------\nHealth is increased by " + mixAdd +
+                    "--------\nHealth is increased by " + mixAdd +
                             "\nNow health level is " + health +
-                            "\nPower is increased by"+ mixAdd/2 +
-                            "\nNow power level is " + power + "\n------"+
+                            "\nPower is increased by" + mixAdd * 2 +
+                            "\nNow power level is " + power +
+                            "\n------" +
                             "\nWhat to do now?");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        // heroMenu(menu);
     }
 }
